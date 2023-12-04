@@ -2,8 +2,15 @@ import React, { useState } from 'react'
 import "./Timeline.css";
 import Post from './Posts/Post';
 
+interface PostData {
+    user: string;
+    postImage: String;
+    likes: number;
+    timestamp: String;
+}
+
 function Timeline() {
-    const [posts, serPosts] = useState([
+    const [posts, setPosts] = useState<PostData[]>([
         {
             user: "InstaPotter_",
             postImage: 
@@ -44,20 +51,19 @@ function Timeline() {
     <div className="timeline">
         <div className="timeline__left">
             <div className="timeline__posts">
-                {posts.map(post => (
+                {posts.map((post, index) => (
                     <Post 
+                        key={index}
                         user={post.user} 
-                        postImage={post.postImage} 
+                        postImage={post.postImage.valueOf()} 
                         likes={post.likes} 
-                        timestamp={post.timestamp}
+                        timestamp={post.timestamp.toString()}
                     />
                 ))}
             </div>
-        </div>
-           
-            
+        </div>       
     </div>
-  )
+  );
 }
 
-export default Timeline
+export default Timeline;

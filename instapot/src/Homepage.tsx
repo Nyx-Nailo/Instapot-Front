@@ -11,10 +11,9 @@ function Homepage() {
         </div>
         <div className="homepage__timeline">
             <Timeline />
-
         </div>
     </div>
-  )
+  );
 }
 
-export default Homepage
+export default Homepage;

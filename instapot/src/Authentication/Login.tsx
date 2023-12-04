@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import "./Login.css";
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Auth, signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
 
 function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
     const handleLogin = () => {
-        signInWithEmailAndPassword(auth, email, password);
+        signInWithEmailAndPassword(auth as Auth, email, password);
     };
 
   return (
@@ -34,4 +34,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Login;

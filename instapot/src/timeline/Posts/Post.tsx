@@ -6,7 +6,14 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import "./Post.css"
 
-function Post({user, postImage, likes, timestamp}) {
+interface PostProps {
+    user: string;
+    postImage: string;
+    likes: number;
+    timestamp: string;
+}
+
+function Post({ user, postImage, likes, timestamp }: PostProps) {
   return (
     <div className='post'>
         <div className="post__header">
@@ -46,4 +53,4 @@ function Post({user, postImage, likes, timestamp}) {
   )
 }
 
-export default Post
+export default Post;

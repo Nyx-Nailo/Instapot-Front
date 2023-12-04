@@ -4,11 +4,12 @@ import Login from './Login';
 import Signup from "./Signup";
 
 function Authentication() {
-    const [active, setActive] = useState("login")
+    const [active, setActive] = useState<"login" | "signup">("login");
 
     const handleChange = () => {
-        setActive(active === "login" ? "signup" : "login")
-    }
+        setActive(active === "login" ? "signup" : "login");
+    };
+
   return (
     <div className="authentication">
         <div className="auth">
@@ -35,7 +36,7 @@ function Authentication() {
             </div>
         </div>
     </div>
-  )
+  );
 }
 
-export default Authentication
+export default Authentication;

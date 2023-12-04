@@ -11,16 +11,17 @@ import { Avatar } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from '../firebase';
 import { logoutUser } from '../feuters/userSlice';
-import { signOut } from 'firebase/auth';
+import { Auth, signOut } from 'firebase/auth';
 
 
 
-function Sidenav() {
-    const user = useSelector((state) => state.data.user.user);
+
+function Sidenav(): JSX.Element {
+    const user = useSelector((state) => (state as any).data.user.user);
     const dispatch = useDispatch();
     const handleLogout = () => {
        dispatch(logoutUser());
-        signOut(auth);
+        signOut(auth as Auth);
     };
 
   return (

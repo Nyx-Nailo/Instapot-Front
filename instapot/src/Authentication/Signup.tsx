@@ -1,26 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, SyntheticEvent } from "react";
 import "./Signup.css";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  Auth,
+  User,
 } from "firebase/auth";
 import { auth } from "../firebase";
 
 function Signup() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
 
-  const handleSignUp = (event) => {
+  const handleSignUp = (event: SyntheticEvent) => {
     event.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth as Auth, email, password)
       .then((authUser) => {
-        signInWithEmailAndPassword(auth, email, password).then(
-          updateProfile(auth.currentUser, {
+        signInWithEmailAndPassword(auth as Auth, email, password).then(() => {
+
+           const currentUser = auth.currentUser as User;
+
+           updateProfile(currentUser, {
             displayName: username,
-          })
-        );
+           });
+          });
       })
       .catch((err) => {
         alert(err);
