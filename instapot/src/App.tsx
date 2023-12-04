@@ -1,28 +1,46 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import "./App.css";
-
-import Home from "./Home";
-import Blogs from "./Blogs";
-import Contact from "./Contact";
-import NoPage from "./NoPage";
-import Layout from "./Layout";
 import Homepage from "./Homepage";
+import Authentication from "./Authentication/Authentication";
+import { useDispatch, useSelector } from "react-redux";
+import { auth } from "./firebase";
+import { loginUser, setLoading } from "./feuters/userSlice";
+
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(
+          loginUser({
+            uid: authUser.uid,
+            username: authUser.displayName,
+            email: authUser.email,
+          })
+        );
+        dispatch(setLoading(false));
+      } else {
+        dispatch(setLoading(false));
+        console.log("User is not logged in.");
+      }
+    });
+  }, []);
+
+  const user = useSelector((state) => (state as any).data.user.user);
+  const isLoading = useSelector((state) => (state as any).data.user.isLoading);
+
   return (
     <div className="app">
-      <Homepage />
+      {isLoading ? (
+        <div className="loader-container">
+          <div className="loader"></div>
+        </div>
+      ) : (
+        <>{user ? <Homepage /> : <Authentication />}</>
+      )}
     </div>
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path='/' element={<Layout />}>
-    //       <Route index element={<Home />} />
-    //       <Route path='blogs' element={<Blogs />} />
-    //       <Route path='contact' element={<Contact />} />
-    //       <Route path='*' element={<NoPage />} />
-    //     </Route>
-    //   </Routes>
-    // </BrowserRouter>
   );
 }
 
