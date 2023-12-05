@@ -14,7 +14,7 @@ type TPost = {
   timestamp: string;
 };
 
-const Post: React.FC<TPost> = ({ user, postImage, likes, timestamp }) => {
+const Post = ({ user, postImage, likes, timestamp }: TPost) => {
   return (
     <div className='border-t border-gray-200 p-3 bg-white rounded text-black flex flex-col gap-2'>
       <div className='flex flex-row justify-between align-middle items-center px-1'>

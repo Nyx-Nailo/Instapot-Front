@@ -61,7 +61,7 @@ type TEditProfileImage = {
   profileImage: string;
 };
 
-const EditProfileImage: React.FC<TEditProfileImage> = ({ profileImage }) => {
+const EditProfileImage = ({ profileImage }: TEditProfileImage) => {
   const [changeProfileImage, setChangeProfileImage] = useState<Boolean>(false);
 
   const hidden = (
