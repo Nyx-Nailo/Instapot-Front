@@ -16,6 +16,7 @@ const LoggedIn = () => {
         {/* <Route path='comments' element={<Comments />} /> */}
         {/* <Route path='create' element={<Create />} /> */}
         {/* <Route path='liked' element={<Liked />} /> */}
+        {/* <Route path='img/:id' element={<Image />} /> */}
         {/* <Route path='profile' element={<Profile />} /> */}
         <Route path='profile/edit' element={<ProfileEdit />} />
         <Route path='*' element={<NoPage />} />
