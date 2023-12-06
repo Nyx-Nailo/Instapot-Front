@@ -12,20 +12,31 @@ const NotLoggedIn = () => {
 
   return (
     <div className='h-screen flex items-center justify-center'>
-      <div className='max-w-2xl flex flex-col items-center justify-center'>
-        {active === "login" ? <Login /> : <Signup />}
-        <div className=''>
-          <span>
-            {active === "login" ? (
-              <>
-                <span>Har du inget konto?</span> <button onClick={handleChange}>Registrera dig</button>
-              </>
-            ) : (
-              <>
-                <span>Har du ett konto?</span> <button onClick={handleChange}>Logga in</button>
-              </>
-            )}
+      <div className='bg-white w-[25rem] p-10 rounded-md shadow-xl shadow-black/25 border-black/25 border-[1px]'>
+        <div className='flex flex-col gap-2'>
+          <span className='text-5xl text-center mb-5' style={{ fontFamily: "Dancing Script" }}>
+            Insta-pot
           </span>
+          {active === "login" ? <Login /> : <Signup />}
+          <div className='text-center'>
+            <span>
+              {active === "login" ? (
+                <>
+                  <span>
+                    Har du <strong>inget</strong> konto?
+                  </span>{" "}
+                  <button onClick={handleChange}>Registrera dig</button>
+                </>
+              ) : (
+                <>
+                  <span>
+                    Har du redan <strong>ett konto</strong>?
+                  </span>{" "}
+                  <button onClick={handleChange}>Logga in</button>
+                </>
+              )}
+            </span>
+          </div>
         </div>
       </div>
     </div>
