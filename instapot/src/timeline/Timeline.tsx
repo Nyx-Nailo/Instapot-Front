@@ -38,13 +38,13 @@ const Timeline = () => {
 
   return (
     <div className='flex flex-col gap-3 md:basis-9/12'>
-      <div className='border-t border-gray-200 p-3 shadow-lg bg-white rounded text-black flex flex-col gap-2 md:hidden relative'>
+      {/* <div className='border-t border-gray-200 p-3 shadow-lg bg-white rounded text-black flex flex-col gap-2 md:hidden relative'>
         <input type='text' placeholder='Sök...' className='border-b-2 border-gray-200 pl-1 outline-none' />
         <button className='absolute top-2.5 right-3'>
           <Search />
         </button>
-      </div>
-      <div className='max-w-lg flex flex-col gap-4'>
+      </div> */}
+      <div className='max-w-lg flex flex-col gap-10'>
         {posts.map((post) => (
           <Post user={post.user} postImage={post.postImage} likes={post.likes} timestamp={post.timestamp} />
         ))}
