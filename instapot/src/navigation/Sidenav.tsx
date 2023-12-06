@@ -44,19 +44,6 @@ const Sidenav = () => {
           <HorizontalRule />
           <span className='hidden md:flex italic'>Profil edit</span>
         </Link>
-
-        {/* <Link to='/' className='hidden md:flex flex-row gap-1 hover:text-gray-300'>
-          <Search />
-          <span className='hidden md:flex'>Sök</span>
-        </Link>
-        <Link to='/' className='hidden md:flex flex-row gap-1 hover:text-gray-300'>
-          <Chat />
-          <span className='hidden md:flex'>Kommentarer</span>
-        </Link>
-        <a to='/' className='hidden md:flex flex-row gap-1 mt-10 hover:text-gray-300'>
-          <Menu />
-          <span className='hidden md:flex'>More</span>
-        </a> */}
       </div>
     </div>
   );

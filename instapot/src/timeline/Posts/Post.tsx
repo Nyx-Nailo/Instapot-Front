@@ -1,9 +1,6 @@
 import Avatar from "@mui/material/Avatar";
-import MoreHorizeIcon from "@mui/icons-material/MoreHoriz";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { useState } from "react";
 import { Favorite } from "@mui/icons-material";
 
@@ -23,11 +20,7 @@ const Post = ({ user, postImage, likes, timestamp }: TPost) => {
             <Avatar>{user.charAt(0).toUpperCase()}</Avatar>
             {user}
           </div>
-          {/* <div>
-            • <span className='text-gray-400'>{timestamp} sedan</span>
-          </div> */}
         </div>
-        {/* <MoreHorizeIcon className='hover:fill-gray-400 cursor-pointer' /> */}
       </div>
       <div>
         <img src={postImage} alt='' className='rounded-md border-2 border-gray-300' />
@@ -42,9 +35,6 @@ const Post = ({ user, postImage, likes, timestamp }: TPost) => {
             </button>
           </div>
           <span className='text-gray-400 text-xs pr-1'>{timestamp} sedan</span>
-          {/* <div className='flex flex-row gap-2'>
-            <BookmarkBorderIcon className='hover:fill-gray-400 cursor-pointer flex-1' />
-          </div> */}
         </div>
         <div className='text-justify mb-1'>
           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
