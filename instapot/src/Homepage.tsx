@@ -5,7 +5,7 @@ const Homepage = () => {
   return (
     <>
       <Sidenav />
-      <main className='my-5'>
+      <main className='py-5'>
         <Outlet />
       </main>
     </>
