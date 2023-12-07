@@ -3,12 +3,12 @@ import Sidenav from "./navigation/Sidenav";
 
 const Homepage = () => {
   return (
-    <div className='m-5'>
+    <>
       <Sidenav />
-      <main>
+      <main className='my-5'>
         <Outlet />
       </main>
-    </div>
+    </>
   );
 };
 

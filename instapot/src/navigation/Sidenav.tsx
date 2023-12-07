@@ -12,7 +12,7 @@ const Sidenav = () => {
 
   return (
     <>
-      <nav className='bg-white rounded-md w-full mb-3 p-3 lg:p-0 text-green-900 lg:mb-0 lg:absolute lg:top-0 lg:-left-[11.5rem] lg:w-[11rem] lg:max-w-[11rem] lg:bg-transparent lg:text-white'>
+      <nav className='bg-white my-5 rounded-md w-full mb-3 p-3 lg:p-0 text-green-900 lg:mb-0 lg:absolute lg:top-0 lg:-left-[11.5rem] lg:w-[11rem] lg:max-w-[11rem] lg:bg-transparent lg:text-white'>
         <div className='flex flex-row lg:flex-col gap-4 justify-center items-center align-middle lg:items-start'>
           <div>
             <span className='hidden lg:flex text-3xl text-center mb-2 lg:mb-0' style={{ fontFamily: "Dancing Script" }}>
