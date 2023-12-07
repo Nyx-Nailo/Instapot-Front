@@ -1,15 +1,17 @@
 import Avatar from "@mui/material/Avatar";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import Liked from "./comp/Liked";
+import { Link } from "react-router-dom";
 
 type TPost = {
+  id: string;
   user: string;
   postImage: string;
   likes: number;
   timestamp: string;
 };
 
-const Post = ({ user, postImage, likes, timestamp }: TPost) => {
+const Post = ({ id, user, postImage, likes, timestamp }: TPost) => {
   return (
     <div className='border-t border-gray-200 p-3 bg-white rounded text-black flex flex-col gap-2'>
       <div className='flex flex-row justify-between align-middle items-center px-1'>
@@ -21,7 +23,9 @@ const Post = ({ user, postImage, likes, timestamp }: TPost) => {
         </div>
       </div>
       <div>
-        <img src={postImage} alt='' className='rounded-md border-2 border-gray-300' />
+        <Link to={`image/${id}`}>
+          <img src={postImage} alt='' className='rounded-md border-2 border-gray-300' />
+        </Link>
       </div>
       <div className='flex flex-col gap-1 px-1'>
         <div className='flex flex-row gap-2 justify-between  mb-2'>

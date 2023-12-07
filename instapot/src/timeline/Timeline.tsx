@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import Post from "./Posts/Post";
 import { useId } from "react";
 
@@ -44,9 +43,7 @@ const Timeline = () => {
   return (
     <div className='flex flex-col gap-3'>
       {posts.map((post) => (
-        <Link to={`image/${post.id}`} key={post.id}>
-          <Post user={post.user} postImage={post.postImage} likes={post.likes} timestamp={post.timestamp} />
-        </Link>
+        <Post id={post.id} user={post.user} postImage={post.postImage} likes={post.likes} timestamp={post.timestamp} key={post.id} />
       ))}
     </div>
   );
