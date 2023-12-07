@@ -7,6 +7,7 @@ import ProfileEdit from "./profile/profileedit";
 import Explore from "./explore/Explore";
 import Image from "./image/Image";
 import LikedImages from "./image/LikedImages";
+import Upload from "./image/Upload";
 
 const LoggedIn = () => {
   return (
@@ -16,7 +17,7 @@ const LoggedIn = () => {
         {/* <Route path='search' element={<Search />} /> */}
         <Route path='explore' element={<Explore />} />
         {/* <Route path='comments' element={<Comments />} /> */}
-        {/* <Route path='create' element={<Create />} /> */}
+        <Route path='image/upload' element={<Upload />} />
         <Route path='image/liked' element={<LikedImages />} />
         <Route path='image/:id' element={<Image />} />
         {/* <Route path='profile' element={<Profile />} /> */}
