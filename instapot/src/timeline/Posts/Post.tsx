@@ -2,6 +2,7 @@ import Avatar from "@mui/material/Avatar";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import Liked from "./comp/Liked";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 type TPost = {
   id: string;
@@ -9,9 +10,18 @@ type TPost = {
   postImage: string;
   likes: number;
   timestamp: string;
+  comments: number;
 };
 
-const Post = ({ id, user, postImage, likes, timestamp }: TPost) => {
+const Post = ({ id, user, postImage, likes, timestamp, comments }: TPost) => {
+  const [comment, setComment] = useState<string>("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // TODO submit to server
+  };
+
   return (
     <div className='border-t border-gray-200 p-3 bg-white rounded text-black flex flex-col gap-2'>
       <div className='flex flex-row justify-between align-middle items-center px-1'>
@@ -33,7 +43,7 @@ const Post = ({ id, user, postImage, likes, timestamp }: TPost) => {
             <Liked likes={likes} />
             <button className='flex flex-row gap-2 cursor-pointer'>
               <ChatBubbleOutlineIcon className='hover:fill-gray-400' />
-              <span className='text-gray-500'>{Math.floor(Math.random() * 100)}</span>
+              <span className='text-gray-500'>{comments}</span>
             </button>
           </div>
           <span className='text-gray-400 text-xs pr-1'>{timestamp} sedan</span>
@@ -42,9 +52,9 @@ const Post = ({ id, user, postImage, likes, timestamp }: TPost) => {
           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
           'Content here, content here',{" "}
         </div>
-        <div>
-          <input type='text' placeholder='Lämna en kommentar...' className='text-gray-500 text-sm py-1 w-full border-b-gray-300 border-b-2 pl-1 outline-none indent-2' />
-        </div>
+        <form onSubmit={handleSubmit}>
+          <input type='text' placeholder='Lämna en kommentar...' onChange={(e) => setComment(e.target.value)} className='text-gray-500 text-sm py-1 w-full border-b-gray-300 border-b-2 pl-1 outline-none indent-2' value={comment} />
+        </form>
       </div>
     </div>
   );

@@ -1,6 +1,17 @@
+import { useState } from "react";
 import EditProfilePicture from "./comp/EditProfilePicture";
 
 const ProfileEdit = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [verifyPassword, setVerifyPassword] = useState<string>("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // TODO submit to server
+  };
+
   const posts = {
     username: "InstaPotter_",
     profileImage: "https://cdn.pixabay.com/photo/2019/04/27/21/56/cactus-4161380_1280.jpg",
@@ -25,33 +36,35 @@ const ProfileEdit = () => {
             </div>
           </div>
         </div>
-        <div className='flex flex-row gap-3'>
-          <div className='w-2/6 text-right'>
-            <strong>E-post</strong>
+        <form onSubmit={handleSubmit} className='flex flex-col gap-3'>
+          <div className='flex flex-row gap-3'>
+            <div className='w-2/6 text-right'>
+              <strong>E-post</strong>
+            </div>
+            <div className='flex flex-col gap-1 w-4/6'>
+              <input type='email' placeholder='Din nya e-post adress' onChange={(e) => setEmail(e.target.value)} className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={email} />
+            </div>
           </div>
-          <div className='flex flex-col gap-1 w-4/6'>
-            <input type='text' placeholder={posts.email} className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' disabled />
+          <div className='flex flex-row gap-3'>
+            <div className='w-2/6 text-right'>
+              <strong>Lösenord</strong>
+            </div>
+            <div className='flex flex-col gap-1 w-4/6'>
+              <input type='password' placeholder='Ditt nya lösenord' onChange={(e) => setPassword(e.target.value)} className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={password} />
+            </div>
           </div>
-        </div>
-        <div className='flex flex-row gap-3'>
-          <div className='w-2/6 text-right'>
-            <strong>Lösenord</strong>
+          <div className='flex flex-row gap-3'>
+            <div className='w-2/6 text-right'>
+              <strong>Bekräfta lösenord</strong>
+            </div>
+            <div className='flex flex-col gap-1 w-4/6'>
+              <input type='password' placeholder='Bekräfta ditt nya lösenord' onChange={(e) => setVerifyPassword(e.target.value)} className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={verifyPassword} />
+            </div>
           </div>
-          <div className='flex flex-col gap-1 w-4/6'>
-            <input type='password' value='abcdefgh' className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' disabled />
+          <div className='m-auto mt-3'>
+            <button className='px-5 py-2 rounded-md bg-green-700/70 hover:bg-green-600/70 text-white'>Spara</button>
           </div>
-        </div>
-        <div className='flex flex-row gap-3'>
-          <div className='w-2/6 text-right'>
-            <strong>Bekräfta lösenord</strong>
-          </div>
-          <div className='flex flex-col gap-1 w-4/6'>
-            <input type='password' value='hgfedcba' className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' disabled />
-          </div>
-        </div>
-        <div className='m-auto mt-3'>
-          <button className='px-5 py-2 rounded-md bg-green-700/70 hover:bg-green-600/70 text-white'>Spara</button>
-        </div>
+        </form>
       </div>
     </div>
   );
