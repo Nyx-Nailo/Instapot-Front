@@ -15,7 +15,7 @@ const NotLoggedIn = () => {
       <div className='bg-white w-[25rem] p-10 rounded-md shadow-xl shadow-black/25 border-black/25 border-[1px]'>
         <div className='flex flex-col gap-2'>
           <span className='text-5xl text-center mb-5' style={{ fontFamily: "Dancing Script" }}>
-            Insta-pot
+            InstaPot
           </span>
           {active === "login" ? <Login /> : <Signup />}
           <div className='text-center'>
