@@ -8,6 +8,24 @@ import { TSingleImage } from "../types/tsingleimage";
 const baseUrl = process.env.REACT_APP_API_URL;
 
 // Fetch Singel Image
+const fetchAllImages = async () => {
+  let endPointUrl = `${baseUrl}/Image/Image/`;
+
+  const response = await axios.get<TSingleImage[]>(`${endPointUrl}`);
+
+  return response.data;
+};
+
+export const useFetchAllImages = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["ipFetchAllImages"],
+    queryFn: () => fetchAllImages(),
+  });
+
+  return { data, isLoading };
+};
+
+// Fetch Singel Image
 const fetchSingleImage = async (imageId: any) => {
   let endPointUrl = `${baseUrl}/Image/Image/${imageId}`;
 
@@ -17,12 +35,12 @@ const fetchSingleImage = async (imageId: any) => {
 };
 
 export const useFetchSingleImage = (imageId: any) => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["ipFetchSingleImage"],
     queryFn: () => fetchSingleImage(imageId),
   });
 
-  return { data };
+  return { data, isLoading };
 };
 
 // Fetch Flow Images (not Loggedin userid images)
@@ -35,12 +53,12 @@ const fetchFlowImagesFromProfile = async (profileId: any) => {
 };
 
 export const useFetchFlowImages = (profileId: any) => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["ipFetchFlowImages"],
     queryFn: () => fetchFlowImagesFromProfile(profileId),
   });
 
-  return { data };
+  return { data, isLoading };
 };
 
 // Fetch username
@@ -53,10 +71,10 @@ const fetchUserName = async (profileId: any) => {
 };
 
 export const useFetchUsername = (userid: any) => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["ipFetchUserName"],
     queryFn: () => fetchUserName(userid),
   });
 
-  return { data };
+  return { data, isLoading };
 };

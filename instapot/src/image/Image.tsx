@@ -14,7 +14,7 @@ const Image = () => {
 
   const id = params.id;
 
-  const { data } = useFetchSingleImage(id);
+  const { data, isLoading } = useFetchSingleImage(id);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,39 +43,43 @@ const Image = () => {
 
   const { data: username } = useFetchUsername(data?.userID);
 
-  return (
-    <>
-      <div className='border-t border-gray-200 p-3 bg-white rounded text-black flex flex-col gap-2 mb-2'>
-        <div className='flex align-middle items-center gap-2 flex-1'>
-          <Avatar>{username?.toString().charAt(0).toUpperCase()}</Avatar>
-          {username?.toString()}
-        </div>
-        <div>
-          <img src={data?.path} alt='id' className='rounded-md border-2 border-gray-300' />
-        </div>
-        <div className='flex flex-col gap-1 px-1'>
-          <div className='flex flex-row gap-2 justify-between mb-2'>
-            <div className='flex flex-row gap-4'>
-              <Liked likes={data?.likedBy} userID={data?.userID} />
-            </div>
-            <span className='text-gray-400 text-xs pr-1'>{moment(data?.createdDate).fromNow()}</span>
+  if (!isLoading && data) {
+    return (
+      <>
+        <div className='border-t border-gray-200 p-3 bg-white rounded text-black flex flex-col gap-2 mb-2'>
+          <div className='flex align-middle items-center gap-2 flex-1'>
+            <Avatar>{username?.toString().charAt(0).toUpperCase()}</Avatar>
+            {username?.toString()}
           </div>
-          <div className='text-justify'>{data?.description}</div>
+          <div>
+            <img src={data?.path} alt='id' className='rounded-md border-2 border-gray-300' />
+          </div>
+          <div className='flex flex-col gap-1 px-1'>
+            <div className='flex flex-row gap-2 justify-between mb-2'>
+              <div className='flex flex-row gap-4'>
+                <Liked likes={data?.likedBy} userID={data?.userID} />
+              </div>
+              <span className='text-gray-400 text-xs pr-1'>{moment(data?.createdDate).fromNow()}</span>
+            </div>
+            <div className='text-justify'>{data?.description}</div>
+          </div>
         </div>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <div className='border-t border-gray-200 p-3 bg-white rounded text-black flex flex-col gap-2 relative w-full mb-2'>
-          <button className='absolute z-50 top-4 right-5'>
-            <Add className='text-gray-500' />
-          </button>
-          <input type='text' placeholder='Lämna en kommentar...' onChange={(e) => setComment(e.target.value)} className='p-1 indent-1 border-gray-300 border-b-[1px] pr-9 text-sm' value={comment} />
-        </div>
-      </form>
-      {data?.comments?.map((com: any, index: any) => {
-        return <SingelComment id={com} key={com} order={index % 2 === 0 ? 1 : 2} />;
-      })}
-    </>
-  );
+        <form onSubmit={handleSubmit}>
+          <div className='border-t border-gray-200 p-3 bg-white rounded text-black flex flex-col gap-2 relative w-full mb-2'>
+            <button className='absolute z-50 top-4 right-5'>
+              <Add className='text-gray-500' />
+            </button>
+            <input type='text' placeholder='Lämna en kommentar...' onChange={(e) => setComment(e.target.value)} className='p-1 indent-1 border-gray-300 border-b-[1px] pr-9 text-sm' value={comment} />
+          </div>
+        </form>
+        {data?.comments?.map((com: any, index: any) => {
+          return <SingelComment id={com} key={com} order={index % 2 === 0 ? 1 : 2} />;
+        })}
+      </>
+    );
+  } else {
+    return <></>;
+  }
 };
 
 export default Image;
