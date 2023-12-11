@@ -5,13 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./store/store";
 import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+
+const queryClient = new QueryClient();
 
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </BrowserRouter>
   </Provider>
 );

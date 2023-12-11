@@ -2,6 +2,7 @@ import { AccountBox, Add, Explore, Favorite, Home, HorizontalRule, Logout } from
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/actions";
 import MenuLink from "./comp/MenuLink";
+import { Link } from "react-router-dom";
 
 const Sidenav = () => {
   const dispatch = useDispatch();
@@ -12,11 +13,11 @@ const Sidenav = () => {
 
   return (
     <>
-      <nav className='bg-white my-5 rounded-md w-full mb-3 p-3 lg:p-0 text-green-900 lg:mb-0 lg:absolute lg:top-0 lg:-left-[11.5rem] lg:w-[11rem] lg:max-w-[11rem] lg:bg-transparent lg:text-white fixed -bottom-3 left-0 right-0 z-50'>
+      <nav className='bg-white my-5 rounded-md w-full mb-3 p-3 lg:p-0 text-green-900 lg:mb-0 lg:absolute lg:top-0 lg:-left-[11.5rem] lg:w-[11rem] lg:max-w-[11rem] lg:bg-transparent lg:text-white'>
         <div className='flex flex-row lg:flex-col gap-4 justify-center items-center align-middle lg:items-start'>
           <div>
             <span className='hidden lg:flex text-3xl text-center mb-2 lg:mb-0' style={{ fontFamily: "Dancing Script" }}>
-              InstaPot
+              <Link to='/'>Insta-pot</Link>
             </span>
           </div>
           <div className='flex flex-row lg:flex-col gap-2'>

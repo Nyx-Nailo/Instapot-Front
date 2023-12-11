@@ -1,41 +1,38 @@
+import { Favorite } from "@mui/icons-material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-import { useState } from "react";
-import { Favorite } from "@mui/icons-material";
-
 type TLiked = {
-  likes: number;
+  likes: any;
+  userID: number;
 };
 
-const Liked: React.FC<TLiked> = ({ likes }) => {
-  const [isLiked, setIsLiked] = useState<Boolean>(Math.random() < 0.3);
-  const [likeings, setLikings] = useState<number>(likes);
-
+const Liked = ({ likes, userID }: TLiked) => {
   const handleSubmit = () => {
     // TODO submit to server
-    setIsLiked(false);
-    setLikings(likeings + 1);
   };
+
+  const imageLiked = likes?.includes(41);
+  const imageLikes = likes?.length ?? 0;
+
+  const notLiked = (
+    <>
+      <button className='flex flex-row gap-2 cursor-pointer' onClick={handleSubmit}>
+        <FavoriteBorderIcon className='hover:fill-gray-400' />
+        <span className='text-gray-500'>{imageLikes}</span>
+      </button>
+    </>
+  );
 
   const Liked = (
     <>
       <button className='flex flex-row gap-2 cursor-pointer' onClick={handleSubmit}>
         <Favorite className='text-red-400' />
-        <span className='text-red-500'>{likeings}</span>
+        <span className='text-gray-500'>{imageLikes}</span>
       </button>
     </>
   );
 
-  const Unliked = (
-    <>
-      <button className='flex flex-row gap-2 cursor-pointer' onClick={handleSubmit}>
-        <FavoriteBorderIcon className='hover:fill-gray-400' />
-        <span className='text-gray-500'>{likeings}</span>
-      </button>
-    </>
-  );
-
-  return isLiked ? Liked : Unliked;
+  return imageLiked ? Liked : notLiked;
 };
 
 export default Liked;
