@@ -2,7 +2,6 @@ import Avatar from "@mui/material/Avatar";
 import Liked from "./comp/Liked";
 import { Link } from "react-router-dom";
 import { TFlow } from "../../types/tflow";
-import { useState } from "react";
 import { useFetchUsername } from "../../hooks/useFetch";
 import Comments from "./comp/Comments";
 

@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
 import { useFetchFlowImages } from "../hooks/useFetch";
 import Post from "./Posts/Post";
 
 const Timeline = () => {
-  const { data, isLoading } = useFetchFlowImages(41);
+  const userId = useSelector((state) => (state as any).authReducer.id);
+
+  const { data, isLoading } = useFetchFlowImages(userId);
 
   if (!isLoading && data) {
     const newdata = data?.slice(0, 5);

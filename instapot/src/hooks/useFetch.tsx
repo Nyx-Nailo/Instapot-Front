@@ -7,6 +7,24 @@ import { TSingleImage } from "../types/tsingleimage";
 
 const baseUrl = process.env.REACT_APP_API_URL;
 
+// Fetch Liked Images
+const fetchLikedImages = async (id: number) => {
+  let endPointUrl = `${baseUrl}/Image/Image/Liked?id=${id}`;
+
+  const response = await axios.get<TSingleImage[]>(`${endPointUrl}`);
+
+  return response.data;
+};
+
+export const useFetchLikedImages = (id: number) => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["ipFetchLikedImages"],
+    queryFn: () => fetchLikedImages(id),
+  });
+
+  return { data, isLoading };
+};
+
 // Fetch Singel Image
 const fetchAllImages = async () => {
   let endPointUrl = `${baseUrl}/Image/Image/`;
