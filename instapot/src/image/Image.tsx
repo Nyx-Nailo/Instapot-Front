@@ -41,6 +41,10 @@ const Image = () => {
     },
   });
 
+  const replaceImage = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    event.currentTarget.src = "../placeholder-image.png";
+  };
+
   const { data: username } = useFetchUsername(data?.userID);
 
   if (!isLoading && data) {
@@ -52,7 +56,7 @@ const Image = () => {
             {username?.toString()}
           </div>
           <div>
-            <img src={data?.path} alt='id' className='rounded-md border-2 border-gray-300' />
+            <img src={data?.path} alt='id' className='rounded-md border-2 border-gray-300' onError={replaceImage} />
           </div>
           <div className='flex flex-col gap-1 px-1'>
             <div className='flex flex-row gap-2 justify-between mb-2'>
