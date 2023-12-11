@@ -3,7 +3,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 type TLiked = {
   likes: any;
-  userID: number;
+  userID: number | any;
 };
 
 const Liked = ({ likes, userID }: TLiked) => {
