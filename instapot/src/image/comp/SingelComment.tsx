@@ -3,7 +3,7 @@ import Avatar from "@mui/material/Avatar";
 const SingelComment = ({ id, order }: number | any) => {
   return (
     <>
-      <div className='border-t border-gray-200 p-3 bg-gray-200 rounded text-black flex flex-col gap-2 mb-2'>
+      <div className={`border-t border-gray-200 p-3 ${order === 1 ? "bg-gray-200" : "bg-white"} rounded text-black flex flex-col gap-2 mb-2`}>
         <div className='flex flex-row gap-3 px-1'>
           <div className={order === 1 ? "order-first" : "order-last"}>
             <Avatar>E</Avatar>
