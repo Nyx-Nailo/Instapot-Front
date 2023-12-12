@@ -21,7 +21,7 @@ const Upload = () => {
             <strong>Bild</strong>
           </div>
           <div className='flex flex-col gap-1 w-4/6'>
-            <input type='text' placeholder='https://' onChange={(e) => setImagePath(e.target.value)} className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={imagePath} />
+            <input type='text' placeholder='https://' onChange={(e) => setImagePath(e.target.value)} disabled className='hover:cursor-not-allowed bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={imagePath} />
           </div>
         </div>
         <div className='flex flex-row gap-3'>
@@ -29,7 +29,7 @@ const Upload = () => {
             <strong>Information</strong>
           </div>
           <div className='flex flex-col gap-1 w-4/6'>
-            <textarea className='bg-gray-200 rounded-sm px-2 py-1 w-5/6 resize-none' onChange={(e) => setInformation(e.target.value)} rows={5} cols={5} value={information} />
+            <textarea disabled className='hover:cursor-not-allowed bg-gray-200 rounded-sm px-2 py-1 w-5/6 resize-none' onChange={(e) => setInformation(e.target.value)} rows={5} cols={5} value={information} />
           </div>
         </div>
         <div className='m-auto mt-3'>

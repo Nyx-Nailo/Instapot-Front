@@ -8,7 +8,7 @@ const Timeline = () => {
   const { data, isLoading } = useFetchFlowImages(userId);
 
   if (!isLoading && data) {
-    const newdata = data?.slice(0, 5);
+    const newdata = data?.slice(0, 10);
 
     return (
       <div className='flex flex-col gap-3'>

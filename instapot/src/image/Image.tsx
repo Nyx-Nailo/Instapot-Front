@@ -42,7 +42,7 @@ const Image = () => {
   });
 
   const replaceImage = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    event.currentTarget.src = "../placeholder-image.png";
+    event.currentTarget.src = "/placeholder-image.png";
   };
 
   const { data: username } = useFetchUsername(data?.userID);
@@ -70,10 +70,10 @@ const Image = () => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className='border-t border-gray-200 p-3 bg-white rounded text-black flex flex-col gap-2 relative w-full mb-2'>
-            <button className='absolute z-50 top-4 right-5'>
+            <button className='hover:cursor-not-allowed absolute z-50 top-4 right-5'>
               <Add className='text-gray-500' />
             </button>
-            <input type='text' placeholder='Lämna en kommentar...' onChange={(e) => setComment(e.target.value)} className='p-1 indent-1 border-gray-300 border-b-[1px] pr-9 text-sm' value={comment} />
+            <input type='text' placeholder='Lämna en kommentar...' onChange={(e) => setComment(e.target.value)} disabled className='hover:cursor-not-allowed p-1 indent-1 border-gray-300 border-b-[1px] pr-9 text-sm' value={comment} />
           </div>
         </form>
         {data?.comments?.map((com: any, index: any) => {
