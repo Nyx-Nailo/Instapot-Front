@@ -21,7 +21,11 @@ const LikedImages = () => {
       </div>
     );
   } else {
-    return <></>;
+    return (
+      <div className='flex flex-col gap-3'>
+        <div className='border-t border-gray-200 p-3 bg-white rounded text-black flex flex-col gap-2 italic'>Sorry, inget gillade bilder... </div>
+      </div>
+    );
   }
 };
 
