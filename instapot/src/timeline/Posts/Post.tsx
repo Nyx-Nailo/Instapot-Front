@@ -49,7 +49,7 @@ const Post = ({ id, userID, path, description, createdDate, comments, likedBy }:
       <div className='flex flex-col gap-1 px-1'>
         <div className='flex flex-row gap-2 justify-between mb-2'>
           <div className='flex flex-row gap-4'>
-            <Liked likes={likedBy} userID={userID} />
+            <Liked likes={likedBy} />
             <Comments comments={comments} />
           </div>
           <span className='text-gray-400 text-xs pr-1'>{moment(createdDate).fromNow()}</span>

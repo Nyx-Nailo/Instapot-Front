@@ -1,17 +1,19 @@
 import { Favorite } from "@mui/icons-material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useSelector } from "react-redux";
 
 type TLiked = {
   likes: any;
-  userID: number | any;
 };
 
-const Liked = ({ likes, userID }: TLiked) => {
+const Liked = ({ likes }: TLiked) => {
+  const userId = useSelector((state) => (state as any).authReducer.id);
+
   const handleSubmit = () => {
     // TODO submit to server
   };
 
-  const imageLiked = likes?.includes(41);
+  const imageLiked = likes?.includes(userId);
   const imageLikes = likes?.length ?? 0;
 
   const notLiked = (
