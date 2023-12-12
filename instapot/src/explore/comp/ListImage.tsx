@@ -4,7 +4,7 @@ type TListImage = {
 
 const ListImage = ({ path }: TListImage) => {
   const replaceImage = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    event.currentTarget.src = "./placeholder-image.png";
+    event.currentTarget.src = "/placeholder-image.png";
   };
 
   return (

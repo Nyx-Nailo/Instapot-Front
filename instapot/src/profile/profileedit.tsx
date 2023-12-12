@@ -42,7 +42,7 @@ const ProfileEdit = () => {
               <strong>E-post</strong>
             </div>
             <div className='flex flex-col gap-1 w-4/6'>
-              <input type='email' placeholder='Din nya e-post adress' onChange={(e) => setEmail(e.target.value)} className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={email} />
+              <input type='email' placeholder='Din nya e-post adress' onChange={(e) => setEmail(e.target.value)} disabled className='hover:cursor-not-allowed bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={email} />
             </div>
           </div>
           <div className='flex flex-row gap-3'>
@@ -50,7 +50,7 @@ const ProfileEdit = () => {
               <strong>Lösenord</strong>
             </div>
             <div className='flex flex-col gap-1 w-4/6'>
-              <input type='password' placeholder='Ditt nya lösenord' onChange={(e) => setPassword(e.target.value)} className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={password} />
+              <input type='password' placeholder='Ditt nya lösenord' onChange={(e) => setPassword(e.target.value)} disabled className='hover:cursor-not-allowed bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={password} />
             </div>
           </div>
           <div className='flex flex-row gap-3'>
@@ -58,7 +58,7 @@ const ProfileEdit = () => {
               <strong>Bekräfta lösenord</strong>
             </div>
             <div className='flex flex-col gap-1 w-4/6'>
-              <input type='password' placeholder='Bekräfta ditt nya lösenord' onChange={(e) => setVerifyPassword(e.target.value)} className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={verifyPassword} />
+              <input type='password' placeholder='Bekräfta ditt nya lösenord' onChange={(e) => setVerifyPassword(e.target.value)} disabled className='hover:cursor-not-allowed bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={verifyPassword} />
             </div>
           </div>
           <div className='m-auto mt-3'>

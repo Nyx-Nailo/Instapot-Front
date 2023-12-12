@@ -28,7 +28,7 @@ const EditProfilePicture = ({ profileImage }: TEditProfileImage) => {
     <>
       <form onSubmit={handleSubmit}>
         <div className='flex flex-row gap-2'>
-          <input type='text' placeholder='Ange ny profil bilds länk' onChange={(e) => setProfilePicture(e.target.value)} className='bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={profilePicture} />
+          <input disabled type='text' placeholder='Ange ny profil bilds länk' onChange={(e) => setProfilePicture(e.target.value)} className='hover:cursor-not-allowed bg-gray-200 rounded-sm px-2 py-1 w-5/6' value={profilePicture} />
           <button className='px-4 py-1 rounded-md bg-green-700/70 hover:bg-green-600/70 text-white'>Save</button>
         </div>
       </form>

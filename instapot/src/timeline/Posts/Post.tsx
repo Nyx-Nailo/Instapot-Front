@@ -7,7 +7,7 @@ import Comments from "./comp/Comments";
 
 const Post = ({ id, userID, path, description, createdDate, comments, likedBy }: TFlow) => {
   const replaceImage = (event: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    event.currentTarget.src = "./placeholder-image.png";
+    event.currentTarget.src = "/placeholder-image.png";
   };
 
   var moment = require("moment");

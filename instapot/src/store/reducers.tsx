@@ -12,7 +12,7 @@ const authReducer = (state = initialState, action: { type: any }) => {
       return {
         ...state,
         isLoggedIn: true,
-        id: 41,
+        id: 2,
       };
     case LOGOUT:
       return {
