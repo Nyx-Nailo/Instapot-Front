@@ -61,7 +61,7 @@ const Image = () => {
           <div className='flex flex-col gap-1 px-1'>
             <div className='flex flex-row gap-2 justify-between mb-2'>
               <div className='flex flex-row gap-4'>
-                <Liked likes={data?.likedBy} userID={data?.userID} />
+                <Liked likes={data?.likedBy} />
               </div>
               <span className='text-gray-400 text-xs pr-1'>{moment(data?.createdDate).fromNow()}</span>
             </div>
@@ -82,7 +82,11 @@ const Image = () => {
       </>
     );
   } else {
-    return <></>;
+    return (
+      <div className='flex flex-col gap-3'>
+        <div className='border-t border-gray-200 p-3 bg-white rounded text-black flex flex-col gap-2 italic'>Sorry, ingen bild... </div>
+      </div>
+    );
   }
 };
 
